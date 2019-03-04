@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 /* 20180304 - 2 */
+/* Controllo traiangolo ed "aggiustamento". */
+/* Esempio con cicli ed array. */
 
 namespace CnsApp01_3
 {
-    /* Esempio con cicli ed array. */
     /* Controllare se i tre numeri/lati immessi dall'utente corrispondano alle seguenti regole:
      * a>b+c   b>a+c   c>a+b   a>|b-c| 
      * Se sono tutte valide _contemporaneamente_, sarà un triangolo.
-     * Se non è un triangolo, trovare i dati più vicini per un triangolo valido. */
+     * Se non è un triangolo, trovare i dati più vicini per un triangolo valido.
+     * [Per ora ... Riduci il più lungo.] */
 
     class Program
     {
@@ -34,9 +36,9 @@ namespace CnsApp01_3
             }
             #endregion
 
-            #region Controllo se triangolo piu creazione nuovo
+            #region Controllo se triangolo piu eventuale modifica
             /* Controllo se è un triangolo ed eventualmente creazione d'uno nuovo */
-            if (isATriangle(TriangoloLato))
+            if (IsATriangle(TriangoloLato))
             {
                 esitoFinale = "E\' un triangolo.";
             }
@@ -83,10 +85,10 @@ namespace CnsApp01_3
             }
             #endregion
 
-            while (!isATriangle(NewTriangle) && NewTriangle[indexOfBiggestSide]>0)
+            while (!IsATriangle(NewTriangle) && NewTriangle[indexOfBiggestSide]>0)
             {
                 NewTriangle[indexOfBiggestSide]--;
-                isATriangle(NewTriangle);
+                IsATriangle(NewTriangle);
             }
 
             return NewTriangle;
@@ -97,7 +99,7 @@ namespace CnsApp01_3
         /// </summary>
         /// <param name="inTriangle">Array di 3 int.</param>
         /// <returns>Booleano: "true" se è un triangolo, "false" altrimenti.</returns>
-        static bool isATriangle(int[] inTriangle)
+        static bool IsATriangle(int[] inTriangle)
         {
             #region Variabili
             bool[] Test = new bool[5];
@@ -155,7 +157,7 @@ namespace CnsApp01_3
                 // Se è un valore è <= a 0, non ha senso.
                 if ((conversioneRiuscita) && (latoConvertito_str2int <= 0))
                 {
-                    Console.WriteLine("Valore immesso minore (od uguale)di zero!\a");
+                    Console.WriteLine("Valore immesso minore di (od uguale a) zero!\a");
                     conversioneRiuscita = false;
                 }
             }
