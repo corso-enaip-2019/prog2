@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No-Gravity Tetris</title>
+    <style>
+body{ background-color: #AAA; }
+
+    header
+    {
+        background-color: #333;
+        color:#F88
+    }
+
+    .pieces-show {
+        background-color: #333;
+        color: #AAA;
+        }
+
+.dark-cell {background-color: #333;}
+.light-cell{ background-color: #AAA; }
+
+    </style>
+</head>
+<body id="bd">
+    <header>No-Gravity Tetris</header>
+
+    <br />
+
+    <main>
+                    
+        <div class="pieces-show" id="pcs-shw">
+            <table border=0>
+                <tr>
+                    <td><button id="reStart">Restart!</button><br />Next piece:</td>
+                    <td id="next-piece-cell" id="next-pc">&nbsp;</td>
+                    <td>!!!!!!!!!!!!!!!Explaining;</td>
+                    <td>Possibile pieces:</td>
+                    <td id="show-piece-nr1">&nbsp;</td>
+                    <td id="show-piece-nr2">&nbsp;</td>
+                    <td id="show-piece-nr3">&nbsp;</td>
+                    <td id="show-piece-nr4">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+
+        <br />
+
+        <div id="playground" class="playground">
+            </div>
+    </main>
+
+    <footer></footer>
+
+<script>
+    var playgr=document.getElementById("playground");
+
+    function removeDivsOfGrid(){
+        while ( playground.firstChild) {
+            playgr.removeChild(playgr.firstChild);
+        }
+
+    }
+
+    function randoIntFrom1To4(){
+        return parseInt(Math.random()*4);
+    }
+
+    //var btn = getElementById("reStart") 
+    //btn.onclick=generateNew6x6();
+
+    function tetris(nW,nE,sW,sE){
+        this.nw=nW;
+        this.ne=nE;
+        this.sw=sW;
+        this.se=sE;
+    }
+
+
+
+    function from1To4_ToTetris(x){
+        if (x==1) 
+            return new tetris(0,1,1,1);  
+        
+        elseif (x==2) 
+            return new tetris(1,1,0,1);
+
+        elseif (x==3) 
+            return new tetris(1,1,1,0);
+        
+        return new tetris(1,0,1,1);
+        }
+
+    function generateNew6x6(){
+        removeDivsOfGrid();
+        
+
+        /* Aggiunta al playground. */
+        //document.getElementById("playground").appendChild(xxx); .appendChild(xxx); 
+
+
+        for (let i = 0; i < 6; i++) {
+            var jSCreatedHDiv = document.createElement('div');
+            /* Aggiungi a quel div la classe 'hrow' e `hrow#`. */
+            jSCreatedHDiv.classList.add('hrow');
+            jSCreatedHDiv.classList.add(`hrow${i}`);
+            jSCreatedHDiv.id=(`hrow${i}`);
+            /* Aggiunta al playground. */
+            document.getElementById("playground").appendChild(jSCreatedHDiv); 
+
+
+            for (let j = 0; j < 6; j++) {
+                /* Crea il <div> della singola cella. */
+                var jSCreatedCDiv = document.createElement('div');
+                /* Aggiungi a quel div la classe 'singleCell', `singleCellXY`, `singleCellZ`, 'notYetClickedCell'. */
+                jSCreatedCDiv.classList.add('cell');
+                jSCreatedCDiv.classList.add(`cell${i}${j}`);
+                jSCreatedCDiv.classList.add(`cell${(i*6)+j}InSerie`);
+             jSCreatedCDiv.classList.add('light-cell');
+
+                document.getElementsByClassName(`hrow${i}`)[0].appendChild(jSCreatedCDiv); 
+            }
+        }
+    }
+
+
+
+    generateNew6x6();
+
+    </script>
+</body>
+</html>
