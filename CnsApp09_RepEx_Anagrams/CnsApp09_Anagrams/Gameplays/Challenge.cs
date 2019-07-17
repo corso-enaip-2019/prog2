@@ -86,23 +86,24 @@ namespace CnsApp09_Anagrams.Gameplays
         int CalculateGainedPoints(DateTime ask, DateTime respond, int[,] pointScale, int maxSeconds, out int elapsedSeconds)
         {
             int points = 0;
-            DateTime DeltaTime = new DateTime();
-            DeltaTime = respond;
-            DeltaTime.Subtract(ask);
-            if (DeltaTime.Second > maxSeconds)
+            TimeSpan deltaTime = new TimeSpan();
+            TimeSpan maxTimeToRespond = new TimeSpan(0,0,0,maxSeconds);
+            deltaTime = respond - ask;
+            if (deltaTime > maxTimeToRespond)
             { points = 0; }
             else
             {
                 for (int i = 0; i < pointScale.Length / 2; i++)
                 {
                     int seconds = pointScale[i, 0];
+                    TimeSpan confrontSeconds = new TimeSpan(0, 0, 0, seconds);
                     int deltaPoints = pointScale[i, 1];
-                    if (DeltaTime.Second < seconds)
+                    if (deltaTime < confrontSeconds)
                     { points = points + deltaPoints; }
                 }
             }
 
-            elapsedSeconds = DeltaTime.Second;
+            elapsedSeconds = ((deltaTime.Days*24 + deltaTime.Hours)*60 + deltaTime.Minutes)*60 + deltaTime.Seconds;
             return points;
         }
     }

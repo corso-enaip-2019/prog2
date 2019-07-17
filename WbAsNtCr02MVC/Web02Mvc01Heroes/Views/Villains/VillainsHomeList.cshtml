@@ -1,0 +1,55 @@
+﻿@model List<VillainsHomeListViewModel>
+@using Web02Mvc01Heroes.ViewModels.VillainsViewModels;
+
+@{ ViewData["Title"] = "SuperHeroes vs Villains - Home"; }
+
+<header>
+    <h1>@ViewData["Title"].ToString();</h1>
+
+    @{
+        if (TempData["FirstVisit"] == null || (bool)TempData["FirstVisit"] == true)
+        {
+            TempData["Message"] = "Benvenuto!";
+            TempData["FirstVisit"] = false;
+        }
+    }
+
+    @{
+        if (TempData["Message"] != null)
+        {
+            <h1>@TempData["Message"].ToString()</h1>
+        }
+        TempData["Message"] = null;
+    }
+
+</header>
+<main>
+    <table>
+        <thead>
+            <tr>
+                @*<th>&nbsp;</th>*@
+                <th>Villain</th>
+                <th>Strength</th>
+                <th>Kills</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (VillainsHomeListViewModel v in Model)
+                {
+                    <tr>
+                        <td>@v.NameVillain</td>
+                        <td>@v.Strength</td>
+                        <td>@v.KilledPeople</td>
+                        <td><a asp-controller="Villains" asp-action="EditVillainPageWithID" asp-route-iDOfVillainToEdit="@v.ID" class="button btn-info">Edit</a></td>
+                        <td><a asp-controller="Villains" asp-action="AskDeleteVillainWithID" asp-route-iDOfVillainToDelete="@v.ID" class="button btn-danger">Delete</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot><tr><td colspan="5">To edit (these and more) infos, click on "Edit".</td></tr></tfoot>
+    </table>
+</main>
+

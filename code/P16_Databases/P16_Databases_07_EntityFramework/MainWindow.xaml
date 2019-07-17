@@ -1,0 +1,24 @@
+﻿<Window x:Class="P16_Databases_07_EntityFramework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P16_Databases_07_EntityFramework"
+        mc:Ignorable="d"
+        Title="Authors and Books"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        FontSize="20">
+    <StackPanel Orientation="Horizontal">
+        <Button Name="OpenAuthorsButton"
+                Content="Authors..."
+                Margin="10"
+                Padding="20,5"
+                Click="OpenAuthorsButton_Click"/>
+        <Button Name="OpenBooksButton"
+                Content="Books..."
+                Margin="10"
+                Padding="20,5"
+                Click="OpenBooksButton_Click" />
+    </StackPanel>
+</Window>

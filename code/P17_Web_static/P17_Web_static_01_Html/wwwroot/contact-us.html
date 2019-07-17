@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mia prima app HTML</title>
+    </head>
+    <body>
+        <header id="site-header">
+            <img alt="cover" src="/cover.jpg" />
+            <h1>Meteo FVG</h1>
+            <h2>Pagina dedicata al meteo in Friuli Venezia Giulia</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">About Us</a></li>
+                    <li><a href="contact-us.html">Contact us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Scrivici il tuo messaggio:</h2>
+            <form method="POST" action="/message-sent.html">
+                <label>Nome:</label>
+                <input name="name" type="text" required /> <br />
+
+                <label>Sei già un abbonato?</label>
+                <input name="subscribed" type="checkbox" /> <br />
+
+                <label>Data di nascita:</label>
+                <input name="birth" type="date" /> <br />
+
+                <label>Genere:</label> <br />
+                <input type="radio" name="gender" value="male" checked /> Maschio <br />
+                <input type="radio" name="gender" value="female" /> Femmina <br />
+
+                <label>Qual è la tua occupazione?</label> <br />
+                <input type="radio" name="job" value="student" />studente <br />
+                <input type="radio" name="job" value="worker" />lavoratore <br />
+                <input type="radio" name="job" value="retired" />pensionato <br />
+                <input type="radio" name="job" value="unemployed" />disoccupato <br />
+
+                <label>Quanto ti piace il sito (da 1 a 10)?</label>
+                <input name="rating" type="number" min="0" max="10" step="0.1" value="9"/> <br />
+
+                <textarea name="message" rows="5" cols="50" >Valore di default</textarea> <br />
+
+                <input type="submit" value="Invia" />
+            </form>
+        </main>
+        <footer>
+            <hr />
+            <p>© Corso Enaip 2019</p>
+        </footer>
+    </body>
+</html>

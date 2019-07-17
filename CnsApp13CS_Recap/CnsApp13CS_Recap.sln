@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangularNumbers", "TriangularNumbers\TriangularNumbers.csproj", "{C29C4010-2D45-46B1-97F3-5EE5EB75FC40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeNumbers", "PrimeNumbers\PrimeNumbers.csproj", "{558D92E9-C65B-4D9C-BD5E-794A799569D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C29C4010-2D45-46B1-97F3-5EE5EB75FC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29C4010-2D45-46B1-97F3-5EE5EB75FC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29C4010-2D45-46B1-97F3-5EE5EB75FC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29C4010-2D45-46B1-97F3-5EE5EB75FC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558D92E9-C65B-4D9C-BD5E-794A799569D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558D92E9-C65B-4D9C-BD5E-794A799569D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558D92E9-C65B-4D9C-BD5E-794A799569D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558D92E9-C65B-4D9C-BD5E-794A799569D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53B246DC-2DD4-43B0-816E-B1E847516B2C}
+	EndGlobalSection
+EndGlobal

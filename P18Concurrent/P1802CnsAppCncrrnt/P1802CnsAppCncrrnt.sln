@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1802CnsAppCncrrnt", "P1802CnsAppCncrrnt\P1802CnsAppCncrrnt.csproj", "{6B8CA201-8D61-4FBA-941E-2A630A3F6183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1802CnsAppCncPretty", "P1802CnsAppCncPretty\P1802CnsAppCncPretty.csproj", "{F3556ADF-F8F6-4A29-BFCC-F61F8E8E0C1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B8CA201-8D61-4FBA-941E-2A630A3F6183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B8CA201-8D61-4FBA-941E-2A630A3F6183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B8CA201-8D61-4FBA-941E-2A630A3F6183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B8CA201-8D61-4FBA-941E-2A630A3F6183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3556ADF-F8F6-4A29-BFCC-F61F8E8E0C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3556ADF-F8F6-4A29-BFCC-F61F8E8E0C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3556ADF-F8F6-4A29-BFCC-F61F8E8E0C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3556ADF-F8F6-4A29-BFCC-F61F8E8E0C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {466977E9-D079-4780-9B24-A1FDCDB3B172}
+	EndGlobalSection
+EndGlobal

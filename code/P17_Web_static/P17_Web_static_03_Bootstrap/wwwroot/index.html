@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html style="background-color: rgb(205, 235, 255);">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mia prima app HTML</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <style>
+            html {
+                background-color: azure;
+            }
+            body {
+                margin: 0 auto;
+                max-width: 700px;
+                background-color: white;
+            }
+
+            #logo-img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .nav-link {
+                color: white;
+            }
+
+            .nav-link:hover {
+                background-color: #444;
+                color: white;
+            }
+
+            pre {
+                background-color: #f8f8f8;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 1.2em 1.2em 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="site-header">
+            <img alt="cover" src="/cover.jpg" style="width:700px;" />
+            <!-- posso importare immagini anche da altri siti -->
+            <!-- <img src="https://cdn4.3bmeteo.com/images/png_2014/2019-05-15_12_regione20_verdi.jpg" /> -->
+            <h1 class="text-center">Meteo FVG</h1>
+            <h2>Pagina dedicata al meteo in Friuli Venezia Giulia</h2>
+            <nav class="navbar navbar-expand bg-dark">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><img id="logo-img" src="menu-icon.png" /></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact us</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <article>
+                    <h2>Meteo Oggi</h2>
+                    <p><a href="/meteo-trieste.html">Trieste</a>: 12 °C</p>
+                    <p>Udine: 11 °C</p>
+                    <p>Gorizia: 13 °C</p>
+                    <p>Pordenone: 10 °C</p>
+                </article>
+            </section>
+            <section class="row">
+                <article class="col-md-6 col-lg-3">
+                    <h2>Meteo Domani</h2>
+                    <p><strong>Trieste</strong>: 15 °C</p>
+                    <p>Udine: 14 °C</p>
+                    <p>Gorizia: 14 °C</p>
+                    <p>Pordenone: 16 °C</p>
+                </article>
+                <article class="col-md-6 col-lg-3">
+                    <h2>Meteo Dopo Domani</h2>
+                    <p><strong>Trieste</strong>: 20 °C</p>
+                    <p>Udine: 15 °C</p>
+                    <p>Gorizia: 18 °C</p>
+                    <p>Pordenone: 19 °C</p>
+                </article>
+            </section>
+            <section>
+                <p>
+                    <pre><strong>&nbsp;&nbsp;&nbsp;&nbsp;I dati sono raccolti da sensori posti vicino alle aree di interesse.</strong>
+I sensori sono di ottima qualità, con un range misurabile di <code>-50 °C : +100 °C</code>,
+<em>costantemente</em> monitorati per evidenziare problemi, bug, guasti.
+                    </pre>
+                </p>
+                <p>Questo sito web è fatto per imparare ad usare l'HTML, e i suoi vari tag, 
+                    ad esempio il tag <code>&lt;html&gt;</code>
+                    A questo sito poi andiamo ad applicare lo stile usando
+                    sia stile inline, che il tag style.
+                </p>
+            </section>
+            <section>
+                <video src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    controls="controls" />
+            </section>
+            <section>
+                <!-- questo è un "anchor" ad una sezione della pagina stessa, quella con id="site-header" -->
+                <p><a href="#site-header">Torna in cima</a></p>
+            </section>
+        </main>
+        <footer>
+            <hr />
+            <p>© Corso Enaip 2019</p>
+        </footer>
+    </body>
+</html>

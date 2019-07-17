@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPF02EntityFW.EmployeeDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF02EntityFW"
+        mc:Ignorable="d"
+        Title="EmployeeDetail" SizeToContent="Height" Width="800">
+    
+    <StackPanel Name="StkPnPrincipal"
+        Orientation="Vertical">
+
+        <StackPanel Name="StkPnInfos"
+        Orientation="Vertical">
+            <Label Name="LblID" Content="ID" />
+            <TextBox Name="TxBxID" Focusable="False" IsReadOnly="True"/>
+
+            <Label Name="LblName" Content="Name" />
+            <TextBox Name="TxBxName" />
+
+            <Label Name="LblProductivity" Content="Productivity (0.00 ÷ 1.00)" />
+            <TextBox Name="TxBxProductivity" />
+           
+            <Label Name="LblTotalBonus" Content="Total bonus" />
+            <TextBox Name="TxBxTotalBonus" />
+        </StackPanel>
+
+        <StackPanel Name="StkPnButtons"
+        Orientation="Horizontal">
+            <Button Name="BtnOK"
+                    Content="_OK"
+                    Click="BtnOK_Click"
+                    />
+            <Button Name="BtnCancel"
+                    Content="_Cancel"
+                    Click="BtnCancel_Click"
+                    
+                    />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

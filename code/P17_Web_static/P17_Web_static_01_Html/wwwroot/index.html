@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html style="background-color: rgb(205, 235, 255);">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mia prima app HTML</title>
+
+        <style>
+            body {
+                max-width: 700px;
+                margin: 0 auto;
+                background-color: white;
+                font-family: 'Segoe UI';
+                box-sizing: border-box;
+            }
+        
+            h1 {
+                font-family: 'Bodoni MT Black';
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            header h2 {
+                font-weight: normal;
+                font-size: 1em;
+                margin-top: 0px;
+                text-align: center;
+            }
+
+            nav {
+                background-color: midnightblue;
+            }
+
+            nav img {
+                width: 30px;
+                height: 30px;
+                /* margin: 0;
+                margin-top: 5px; */
+                margin: 5px 0 1px;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                width: calc((98% - 40px) / 3);
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            li:nth-child(1) {
+                width: 40px;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                padding: 5px 20px;
+                margin: 0;
+            }
+
+            li:nth-child(1) a {
+                padding: 0;
+                margin: 0;
+            }
+
+            main {
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="site-header">
+            <img alt="cover" src="/cover.jpg" style="width:700px;" />
+            <!-- posso importare immagini anche da altri siti -->
+            <!-- <img src="https://cdn4.3bmeteo.com/images/png_2014/2019-05-15_12_regione20_verdi.jpg" /> -->
+            <h1>Meteo FVG</h1>
+            <h2>Pagina dedicata al meteo in Friuli Venezia Giulia</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html"><img src="menu-icon.png" /></a>
+                    </li>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html">Contact us</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <article>
+                    <h2>Meteo Oggi</h2>
+                    <p><a href="/meteo-trieste.html">Trieste</a>: 12 °C</p>
+                    <p>Udine: 11 °C</p>
+                    <p>Gorizia: 13 °C</p>
+                    <p>Pordenone: 10 °C</p>
+                </article>
+            </section>
+            <section>
+                <article>
+                    <h2>Meteo Domani</h2>
+                    <p><strong>Trieste</strong>: 15 °C</p>
+                    <p>Udine: 14 °C</p>
+                    <p>Gorizia: 14 °C</p>
+                    <p>Pordenone: 16 °C</p>
+                </article>
+                <article>
+                    <h2>Meteo Dopo Domani</h2>
+                    <p><strong>Trieste</strong>: 20 °C</p>
+                    <p>Udine: 15 °C</p>
+                    <p>Gorizia: 18 °C</p>
+                    <p>Pordenone: 19 °C</p>
+                </article>
+            </section>
+            <section>
+                <p>
+<pre><strong>&nbsp;&nbsp;&nbsp;&nbsp;I dati sono raccolti da sensori posti vicino alle aree di interesse.</strong>
+I sensori sono di ottima qualità, con un range misurabile di <code>-50 °C : +100 °C</code>,
+<em>costantemente</em> monitorati per evidenziare problemi, bug, guasti.
+                    </pre>
+                </p>
+                <p>Questo sito web è fatto per imparare ad usare l'HTML, e i suoi vari tag, 
+                    ad esempio il tag &lt;html&gt;
+                    A questo sito poi andiamo ad applicare lo stile usando
+                    sia stile inline, che il tag style.
+                </p>
+            </section>
+            <section>
+                <video src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    controls="controls" />
+            </section>
+            <section>
+                <!-- questo è un "anchor" ad una sezione della pagina stessa, quella con id="site-header" -->
+                <p><a href="#site-header">Torna in cima</a></p>
+            </section>
+        </main>
+        <footer>
+            <hr />
+            <p>© Corso Enaip 2019</p>
+        </footer>
+    </body>
+</html>

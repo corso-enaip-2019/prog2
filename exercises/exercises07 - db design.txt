@@ -1,0 +1,13 @@
+Questo è il risultato delle conversazioni avute con il proprietario di una palestra:
+
+Guarda, io devo gestire i miei allenatori e i miei iscritti, che vengono a fare gli allenamenti.
+L'allenatore crea le schede di allenamento per i suoi utenti, cioè per gli utenti che io gli ho assegnato.
+Quando la persona arriva in palestra per il suo allenamento periodico, si connette con il cellulare e può segnarsi tutti gli esercizi che ha fatto, in base alla scheda che ha.
+Un "esercizio" è tipo: "piegamenti", o "trazioni", ecc. La persona vede sul cellulare una descrizione completa di come fare l'esercizio e lo svolge.
+Per fare l'esercizio la persona deve fare diverse serie (sono specificate nell'esercizio), ogni serie ha n cose da fare, ad esempio una serie di addominali da 15 vuol dire che l'utente deve fare 15 addominali. Può essere indicata anche una quantità, ad esempio posso avere una serie di piegamenti su panca con 20 kg di pesi, poi la seconda serie con 25 kg, ecc.
+Tra una serie e l'altra è anche indicato quanti secondi di pausa fare.
+
+Tutti i tipi di esercizi sono schedati in un catalogo, con descrizione e una o più immagini, che l'utente riceve sul cellulare quando sta facendo la sua scheda.
+
+I miei allenatori basta che abbiano nome, email, password.
+Gli utenti hanno nome, cognome, email, password, indirizzo, numero di telefono.

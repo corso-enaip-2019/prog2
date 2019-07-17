@@ -1,0 +1,116 @@
+﻿@model VillainsVillainToEditViewModel
+@using Web02Mvc01Heroes.ViewModels;
+@using System.Reflection;
+@using Web02Mvc01Heroes.Models;
+
+@{ ViewData["Title"] = String.Concat("Villains' section - Edit villain ", Model.NameVillain.ToString());}
+
+<h1>VillainsEditView</h1>
+
+<header>
+    <h1>@ViewData["Title"].ToString();</h1>
+    @{
+        if (TempData["Message"] != null)
+        {
+            <h1>@TempData["Message"].ToString()</h1>
+        }
+        TempData["Message"] = null;
+    }
+</header>
+<main>
+    <form action="/" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Old-Value</th>
+                    <th>New-Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (PropertyInfo prp in Model.GetType().GetProperties())
+                    {
+                        string pn = prp.Name.ToString();
+
+                        if (pn.ToLower() != "id"/* || pn.ToLower() != "nemesis"*/)
+                        {
+                            <tr>
+                                <td><label for="@pn">@pn</label></td>
+                                <td>@prp.GetValue(Model)</td>
+                                <td>
+                                    @prp.PropertyType.ToString();
+                                    @{
+                                        string strTypeCS, strTypeSimple;
+                                        switch (prp.PropertyType.ToString())
+                                        {
+                                            case "System.Boolean": { strTypeCS = "bool"; strTypeSimple = "boolean"; break; }
+                                            case "System.Byte": { strTypeCS = "byte"; strTypeSimple = "integer"; break; }
+                                            case "System.Char": { strTypeCS = "char"; strTypeSimple = "integer"; break; }
+                                            case "System.SByte": { strTypeCS = "sbyte"; strTypeSimple = "integer"; break; }
+                                            case "System.Decimal": { strTypeCS = "decimal"; strTypeSimple = "fpoint"; break; }
+                                            case "System.Double": { strTypeCS = "double"; strTypeSimple = "fpoint"; break; }
+                                            case "System.Single": { strTypeCS = "float"; strTypeSimple = "fpoint"; break; }
+                                            case "System.Int32": { strTypeCS = "int"; strTypeSimple = "integer"; break; }
+                                            case "System.UInt32": { strTypeCS = "uint"; strTypeSimple = "integer"; break; }
+                                            case "System.Int64": { strTypeCS = "long"; strTypeSimple = "integer"; break; }
+                                            case "System.UInt64": { strTypeCS = "ulong"; strTypeSimple = "integer"; break; }
+                                            case "System.Int16": { strTypeCS = "short"; strTypeSimple = "integer"; break; }
+                                            case "System.UInt16": { strTypeCS = "ushort"; strTypeSimple = "integer"; break; }
+                                            case "System.String": { strTypeCS = "string"; strTypeSimple = "text"; break; }
+
+                                            case "System.DateTime": { strTypeCS = "DateTime"; strTypeSimple = "date"; break; } /* Non è un tipo "base" */
+
+                                            case "Web02Mvc01Heroes.Models.SuperHero": { strTypeCS = "SuperHero"; strTypeSimple = "superHero"; break; } /* Oggetto definito da noi. */
+
+                                            default: { strTypeCS = "???"; strTypeSimple = "???"; break; }
+                                        }
+
+
+                                        switch (strTypeSimple)
+                                        {
+                                            case "boolean":
+                                                { <input type="checkbox" name="@pn" value="@prp.GetValue(Model)" /> break;
+                                                }
+                                            case "integer":
+                                                {<input type="number" name="@pn" value="@prp.GetValue(Model)" /> break;
+                                                }
+                                            case "fpoint":
+                                                {<input type="number" name="@pn" value="@prp.GetValue(Model)" /> break;
+                                                }
+                                            case "text":
+                                                {<input type="text" name="@pn" value="@prp.GetValue(Model)" /> break;
+                                                }
+                                            case "date":
+                                                {<input type="datetime" name="@pn" value="@prp.GetValue(Model)" /> break;
+                                                }
+                                            case "superHero":
+                                                {
+                                                    
+                                                        List<SuperHeroesRadioListForVillainsEditViewModel> heroList = ViewData["inHeroesList"] as List<SuperHeroesRadioListForVillainsEditViewModel>;
+                                                        foreach (SuperHeroesRadioListForVillainsEditViewModel s in heroList)
+                                                        {
+                                                            <p>@s.NameHero</p>
+                                                            <input type="radio" name="Nemesis" value="@s.NameHero" />@s.NameHero
+                                                        }
+
+                                                    break;
+                                                }
+
+
+                                            default:
+                                                break;
+                                        }
+
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </form>
+
+</main>
+

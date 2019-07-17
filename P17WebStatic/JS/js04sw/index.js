@@ -1,0 +1,1 @@
+console.log('riscrittura di starwars in js, 1ª in js "standard", poi in js "a classi".');

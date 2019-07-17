@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js6-dom</title>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        main, header {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #grid {
+            background-color: white;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #reset-grid {
+            margin: 20px;
+        }
+
+        .cell {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cell:hover {
+            background-color: #eee;
+        }
+
+        .clicked-cell, .clicked-cell:hover {
+            background-color: black;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        #btn-container {
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
+
+    <script>
+        document.onload = function() {
+            setTimeout(() => {
+                var g = document.getElementById('grid');
+                var d = document.createElement('div');
+                d.classList.add('cell');
+                g.appendChild(d);
+            }, 10);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 onclick="alert('Title clicked!');">Paint - version scrausa</h1>
+    </header>
+    <main>
+        <div id="grid">
+
+        </div>
+        <div id="btn-container">
+            <button id="reset-grid">Reset Picture</button>
+            <button id="create-chessboard">Create Chess Board</button>
+        </div>
+    </main>
+
+    <!-- <script>
+        let mainGrid = document.getElementById('grid');
+        for(let i = 0; i < 900; i++) {
+            var createdDiv = document.createElement('div');
+            createdDiv.classList.add('cell');
+            createdDiv.onclick = function(ev) {
+                //inline style:
+                // ev.target.style.backgroundColor = 'black';
+
+                // style through classes:
+                ev.target.classList.add('clicked-cell');
+
+                // I can stop an event from being propagated
+                // to the outer containers:
+                // ev.stopPropagation();
+            }
+            mainGrid.appendChild(createdDiv);
+        }
+        mainGrid.onclick = function(ev) {
+            // Even if an inner container is clicked,
+            // the event bubbles up to the outer containers,
+            // like this div "grid".
+        }
+
+        var resetGrid = document.getElementById('reset-grid');
+        resetGrid.onclick = function() {
+            var cells = document.getElementsByClassName('cell');
+            for(let c of cells) {
+                c.classList.remove('clicked-cell');
+            }
+        }
+
+        var createChessboard = document.getElementById('create-chessboard');
+        createChessboard.onclick = function() {
+            var cells = document.getElementsByClassName('cell');
+            for (let i = 0; i < 30; i++) {
+                for(let j = 0; j < 30; j++) {
+                    var d = cells[i * 30 + j];
+                    if (i % 2 == 0) {
+                        if (j % 2 == 0) {
+                            d.classList.add('clicked-cell');
+                        } else {
+                            d.classList.remove('clicked-cell');
+                        }
+                    } else {
+                        if (j % 2 == 0) {
+                            d.classList.remove('clicked-cell');
+                        } else {
+                            d.classList.add('clicked-cell');
+                        }
+                    }
+                }
+            }
+        }
+    </script> -->
+</body>
+</html>

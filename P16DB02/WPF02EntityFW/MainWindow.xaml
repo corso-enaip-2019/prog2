@@ -1,0 +1,92 @@
+﻿<Window x:Class="WPF02EntityFW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF02EntityFW"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600"
+        Width="800"
+        FontSize="16"
+        WindowStartupLocation="CenterScreen"
+        >
+
+    <Grid>
+        <!-- Definizione delle righe. -->
+        <Grid.RowDefinitions>
+            <!-- Riga dei pulsanti (con altezza automatica). -->
+            <RowDefinition Height="Auto"/>
+            <!-- Riga della tableea da DB (si prenderà tutta l'altezza restante disponibile). -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Definizione delle colonne (c'è una sola colonna nella Grid più esterna). -->
+        <!--<Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
+
+        <!-- Definizione delle singole celle-child(X,Y). -->
+        <Grid Name="GrdButtonsGrid"
+            Grid.Row="0" Grid.Column="0"
+            >
+            <Grid.RowDefinitions>
+                <!-- Riga dei pulsanti (con altezza automatica). -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="BtnLoad"
+                Grid.Row="0" Grid.Column="0"
+            
+                Content="_Load"
+                Click="BtnLoad_Click"
+                Padding="20,5"
+                />
+            <Button Name="BtnNew"
+                Grid.Row="0" Grid.Column="1"
+            
+                Content="_New"
+                Click="BtnNew_Click"
+                Padding="20,5"
+                />
+            <Button Name="BtnUpdate"
+                Grid.Row="0" Grid.Column="2"
+            
+                Content="_Update"
+                Click="BtnUpdate_Click"
+                Padding="20,5"
+                />
+            <Button Name="BtnDelete"
+                Grid.Row="0" Grid.Column="3"
+            
+                Content="_Delete"
+                Click="BtnDelete_Click"
+                Padding="20,5"
+                />
+        </Grid>
+
+        <DataGrid Name = "DtGEmployeesGrid"
+            Grid.Row="1" Grid.Column="0"
+         >
+
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header = "Name" Binding = "{Binding Name}" />
+                <DataGridTextColumn Header = "Title" Binding = "{Binding Title}" >
+                    <DataGridCheckBoxColumn Header = "ReElected?" Binding = "{Binding WasReElected}"/>
+
+                    <DataGridComboBoxColumn Header = "Party"
+               SelectedItemBinding = "{Binding Affiliation}" 
+               ItemsSource = "{Binding Source = {StaticResource myEnum}}" />
+            </DataGrid.Columns>-->
+
+        </DataGrid>
+
+    </Grid>
+
+</Window>

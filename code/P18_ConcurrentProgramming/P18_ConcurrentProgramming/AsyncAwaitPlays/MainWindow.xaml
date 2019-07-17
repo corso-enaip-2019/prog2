@@ -1,0 +1,36 @@
+﻿<Window x:Class="AsyncAwaitPlays.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncAwaitPlays"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="500"
+        Width="500"
+        FontSize="36">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Name="InputNumberTextBox" Margin="20" />
+
+        <Button Grid.Row="1" Grid.Column="0" Name="MainButton"
+            Margin="20"
+            Content="Click me!"
+            Click="MainButton_Click"/>
+
+        <Button Grid.Row="1" Grid.Column="1" Name="ErroredButton"
+            Margin="20"
+            Content="Click me!"
+            Click="ErroredButton_Click"/>
+    </Grid>
+    
+</Window>

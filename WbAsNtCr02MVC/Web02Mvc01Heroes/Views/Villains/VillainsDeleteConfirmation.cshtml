@@ -1,0 +1,12 @@
+﻿@model VillainsVillainToDeleteViewModel
+@using Web02Mvc01Heroes.ViewModels;
+@{ ViewData["Title"] = "Villain\'s Delete Confirmation"; }
+
+<h1>Villain's Delete Confirmation</h1>
+
+<main>
+    <div>Do you really want to delete the villain @Model.NameVillain from the list?</div>
+    
+    <div><a asp-controller="VillainsController" asp-action="DeleteVillainByID" asp-route-iDOfVillainToDelete="@Model.ID" class="btn-danger">Yes, delete him!</a></div>
+    <div><a asp-controller="VillainsController" asp-action="Index" class="btn-info">Don't delete the villain, back to list.</a></div>
+</main>

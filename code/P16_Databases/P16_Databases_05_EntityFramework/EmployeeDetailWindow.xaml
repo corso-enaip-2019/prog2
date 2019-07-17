@@ -1,0 +1,43 @@
+﻿<Window x:Class="P16_Databases_05_EntityFramework.EmployeeDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P16_Databases_05_EntityFramework"
+        mc:Ignorable="d"
+        Title="Employee Detail"
+        Width="300"
+        SizeToContent="Height"
+        FontSize="20">
+    <StackPanel Orientation="Vertical" Margin="10">
+        <Label Content="Name:" />
+
+        <TextBox Name="NameTextBox"
+                 Margin="0,0,0,20"/>
+
+        <Label Content="Productivity:" />
+
+        <TextBox Name="ProductivityTextBox"
+                 Margin="0,0,0,20"/>
+
+        <Label Content="TotalBonus:" />
+
+        <TextBox Name="TotalBonusTextBox"
+                 Margin="0,0,0,20"/>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,0">
+            <Button Name="UndoButton"
+                    Content="Undo"
+                    Padding="20,5"
+                    Click="UndoButton_Click" />
+
+            <Button Name="OkButton"
+                    Content="Ok"
+                    Padding="20,5"
+                    Margin="20,0,0,0"
+                    Click="OkButton_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,13 @@
+﻿<Window x:Class="SingleThreadedPlays.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SingleThreadedPlays"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Button FontSize="48"
+            Content="Click me!"
+            Name="MainButton"
+            Click="MainButton_Click"/>
+</Window>

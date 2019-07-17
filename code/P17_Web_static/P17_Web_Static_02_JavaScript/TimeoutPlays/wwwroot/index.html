@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .normal-div {
+            width: 80px;
+            height: 80px;
+            background-color: orange;
+            margin: 10px;
+            font-size: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    </style>
+
+    <script>
+    // global functions
+    function putStyleOnDiv(div) {
+        div.classList.add('normal-div');
+    }
+    </script>
+
+    <script>
+        window.onload = function() {
+            var div1 = document.getElementById('my-div1');
+            putStyleOnDiv(div1);
+
+            div1.onclick = function() {
+                this.style.backgroundColor = 'red';
+                alert('Hai cambiato colore!');
+            }
+
+            div1.onmouseover = function() {
+                this.style.backgroundColor = 'green';
+                for(let i = 0; i < 1000000000; i++) {
+                    // ...
+                }
+                this.style.backgroundColor = 'blue';
+            }
+
+            var div2 = document.getElementById('my-div2');
+            putStyleOnDiv(div2);
+
+            div2.onclick = function() {
+                this.style.backgroundColor = 'red';
+                setTimeout(() => alert('Hai cambiato colore!'), 0);
+            }
+
+            div2.onmouseover = function() {
+                this.style.backgroundColor = 'yellow';
+                this.innerText = "loading...";
+
+                setTimeout(() => {
+                    for(let i = 0; i < 1000000000; i++) {
+                        // ...
+                    }
+                    this.style.backgroundColor = 'azure';
+                    this.innerText = 'done!';
+                }, 0);
+            }
+
+            var div3 = document.getElementById('my-div3');
+            putStyleOnDiv(div3);
+
+            div3.onclick = function() {
+                console.log("0 - " + new Date());
+
+                setTimeout(() => {
+                    console.log("1 - " + new Date());
+                }, 1000);
+
+                setTimeout(() => {
+                    console.log("2 - " + new Date());
+                }, 500);
+
+                for (let i = 0; i < 3000000000; i++) {
+                    // ...
+                }
+            };
+
+            var div4 = document.getElementById('my-div4');
+            putStyleOnDiv(div4);
+
+            div4.onclick = function() {
+                console.log("0 - " + new Date());
+
+                setTimeout(() => {
+                    console.log("1 - " + new Date());
+                    setTimeout(() => {
+                        console.log("2 - " + new Date());
+                    }, 1000);
+                }, 2000);
+
+                for (let i = 0; i < 3000000000; i++) {
+                    // ...
+                }
+            };
+        }
+    </script>
+</head>
+<body class="container">
+    <div id="my-div1"><p>1</p></div>
+    <div id="my-div2"><p>2</p></div>
+    <div id="my-div3"><p>3</p></div>
+    <div id="my-div4"><p>4</p></div>
+    <div id="my-div5"><p>5</p></div>
+    <div id="my-div6"><p>6</p></div>
+    <div id="my-div7"><p>7</p></div>
+
+    <script>
+        var div5 = document.getElementById('my-div5');
+        putStyleOnDiv(div5);
+
+        div5.onclick = function() {
+            var i = 1;
+            var token = setInterval(
+                () => console.log("ciao " + (i++)),
+                500);
+            setTimeout(
+                () => clearInterval(token),
+                3000);
+            for(let j = 0; j < 3000000000; j++) {
+                // ...
+            }
+        };
+
+        var div6 = document.getElementById('my-div6');
+        putStyleOnDiv(div6);
+
+        div6.onclick = function() {
+            var i = 1;
+
+            var recursiveTimeout = function() {
+                console.log("ciao " + (i++));
+                if (i < 10) {
+                    setTimeout(recursiveTimeout, 500);
+                }
+            }
+
+            recursiveTimeout();
+
+            for(let j = 0; j < 3000000000; j++) {
+                // ...
+            }
+        };
+
+        var div7 = document.getElementById('my-div7');
+        putStyleOnDiv(div7);
+
+        div7.onclick = function() {
+            var count = 1;
+
+            for (let i = 1; i < 10; i++) {
+                setTimeout(() => console.log(i++), 500 * i);
+            }
+
+            for (let j = 0; j < 3000000000; j++) {
+                // ...
+            }
+        };
+    </script>
+</body>
+</html>

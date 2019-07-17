@@ -1,0 +1,16 @@
+{
+  "name": "js07lambda",
+  "version": "1.0.0",
+  "description": "ex con lambda vs fx",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lambda",
+    "vs",
+    "fx"
+  ],
+  "author": "N24",
+  "license": "ISC"
+}

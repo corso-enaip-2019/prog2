@@ -1,0 +1,60 @@
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #111;
+    color: #AAA;
+    font-family: 'Segoe UI';
+    box-sizing: border-box;
+    /* Anche s'è "text-", funziona con tutto. */
+    text-align:center;
+}
+
+body>.mainboard {
+    width:50%;
+    background-color:#555;
+    margin: 16px;
+    display:inline-flex;
+}
+
+.mainboard>.panels {
+    background-color: #111;
+    margin: 16px;
+    display: inline-flex;
+}
+
+.playarea {
+    max-width: 70%;
+    /* width:70%; */
+    /* min-width: 700px; */
+    /* min-width: 70%;
+    max-width: 70%; */
+}
+
+.sideboard {
+    /* min-width: 70px;
+    max-width: 70px; */
+    /* width:25%; */
+    /* min-width: 25%;
+    max-width: 25%; */
+    max-width: 25%;
+    text-align: justify;
+}
+
+.singleCell {
+    width: 30%;
+    height: 26%;
+    margin: 16px;
+}
+
+.notYetClickedCell{background:linear-gradient(#33333300,#333333ff,#33333300);}
+
+.clickedCell{background:linear-gradient(#00008800,#008800ff,#ffffffff,#880000ff,#00008800);}
+
+.oClickedCell{background: radial-gradient(#88000000,#880000ff,#88000000);}
+
+.xClickedCell{background: linear-gradient(#00008800,#000088ff,#00008888,#000088ff,#00008888,#000088ff,#00008800);}
+
+#infoText{
+    text-align: justify;
+    padding: 16px;
+}

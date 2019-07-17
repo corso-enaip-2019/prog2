@@ -1,0 +1,55 @@
+﻿@page
+@{
+    // Una sezione circondata con @{ } rappresenta un blocco di codice C#
+    // che viene eseguito lato server.
+    // Questo blocco non aggiunge nulla alla pagina HTML.
+    ViewData["Title"] = "URL";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @{
+        // tutti i blocchi @{ } condividono lo stesso scope,
+        // quindi variabili, metodi ecc. sono visti da tutti.
+        // I blocchi sono eseguiti in ordine.
+        ViewData["Title"] += " Analysis";
+    }
+    <!-- con la chiocciola richiamo una espressione di C# che possa restituire un valore.
+        In questo caso è il dizionario ViewData che tra le voci ha una chiave "Title": -->
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-page="/Index" class="navbar-brand">Home</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-page="/Index">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        <footer>
+            <p>&copy; ENAIP 2019</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

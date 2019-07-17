@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P19_Web_Dynamic_02_Strings", "P19_Web_Dynamic_02_Strings\P19_Web_Dynamic_02_Strings.csproj", "{1747A339-EECB-43C1-A97B-F3DE04B9FFD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1747A339-EECB-43C1-A97B-F3DE04B9FFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1747A339-EECB-43C1-A97B-F3DE04B9FFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1747A339-EECB-43C1-A97B-F3DE04B9FFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1747A339-EECB-43C1-A97B-F3DE04B9FFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9F89E88-7B46-44BF-8C00-6AE666CC8A74}
+	EndGlobalSection
+EndGlobal

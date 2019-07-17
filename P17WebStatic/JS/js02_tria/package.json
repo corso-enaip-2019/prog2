@@ -1,0 +1,15 @@
+{
+  "name": "js02_tria",
+  "version": "1.0.0",
+  "description": "Gioco della tria automatico",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tria",
+    "auto"
+  ],
+  "author": "N24",
+  "license": "ISC"
+}

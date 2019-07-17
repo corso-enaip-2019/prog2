@@ -1,0 +1,16 @@
+{
+  "name": "js05stack",
+  "version": "1.0.0",
+  "description": "Ricreazione dello stack e del notifing stack in js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stack",
+    "notifing",
+    "remake"
+  ],
+  "author": "N24",
+  "license": "ISC"
+}
