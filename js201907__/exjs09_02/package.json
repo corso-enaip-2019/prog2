@@ -1,16 +1,12 @@
 {
-  "name": "exjs09linqfields",
+  "name": "exjs09_02",
   "version": "1.0.0",
-  "description": "Esercizio sugl'ortolaini, questa volta in js.",
+  "description": "orto linq fields",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "orto",
-    "linq",
-    "fields"
-  ],
   "author": "N²+",
+  "keywords": ["orto", "linq", "fields"],
   "license": "ISC"
 }
