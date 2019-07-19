@@ -60,11 +60,23 @@ namespace CnsApp30_Ex10Queries
             mockFieldsBoris.Add(new Field("Carciofi", 5));
             outList.Add(new Farm("Boris", mockFieldsBoris));
 
-            List<Field> mockFieldsIvan = new List<Field>();
-            mockFieldsIvan.Add(new Field("Mais", 50));
-            mockFieldsIvan.Add(new Field("Carote", 30));
-            mockFieldsIvan.Add(new Field("Cavolfiori", 50));
-            outList.Add(new Farm("Ivan", mockFieldsIvan));
+            //fattoriaA con lo stesso proprietario di fattoriaB
+            List<Field> mockFieldsIvanA = new List<Field>();
+            mockFieldsIvanA.Add(new Field("Mais", 50));
+            mockFieldsIvanA.Add(new Field("Carote", 30));
+            mockFieldsIvanA.Add(new Field("Cavolfiori", 50));
+            outList.Add(new Farm("Ivan", mockFieldsIvanA));
+
+            //fattoriaB con lo stesso proprietario di fattoriaA
+            List<Field> mockFieldsIvanB = new List<Field>();
+            mockFieldsIvanB.Add(new Field("Mais", 10));
+            mockFieldsIvanB.Add(new Field("Mais", 25));
+            mockFieldsIvanB.Add(new Field("Viti", 350));
+            outList.Add(new Farm("Ivan", mockFieldsIvanB));
+
+            //fattoria senza campi
+            List<Field> mockFieldsDragan = new List<Field>();
+            outList.Add(new Farm("Dragan", mockFieldsDragan));
 
             return outList;
         }
@@ -150,7 +162,15 @@ namespace CnsApp30_Ex10Queries
         }
 
         /* - a list of `Owners`, where every `Owner` has a `Name` and a list of `Farms` (and every `Farm` has its list of `Fields`) */
-        static List<OwnerSFarms> GetListOfOwnersWithTheirsFarms(List<Farm> inListOfFarms) { return new List<OwnerSFarms>(); }
+        static List<OwnerSFarms> GetListOfOwnersWithTheirsFarms(List<Farm> inListOfFarms)
+        {
+            List<OwnerSFarms>  outList = new List<OwnerSFarms>();
+
+
+
+            return outList;
+
+        }
 
         /* - a list of `Owners`, where every `Owner` has a `Name` and a list of `VegetablePercentages`, where a `VegetablePercentage` has the Name of the `Vegetable` and the percentage of `Extension` of that `Vegetable` on the `Farms` of that `Owner` (for example, `Mario` has many `Farms` and `Fields`, for a total of 60 areas of corn and 140 areas of wheat: there will be 2 items in the `Mario`'s list, one with the infos 'Corn' and 30%, and the other with the infos 'Wheat' and 70%) */
         static List<OwnerSVegetables> GetListOfOwnersWithTheirVegetablePercentages(List<Farm> inListOfFarms) { return new List<OwnerSVegetables>(); }
