@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using CnsApp31P19Libreria.DataAccess;
+
 namespace CnsApp31P19Libreria
 {
     public class Startup
@@ -23,6 +25,9 @@ namespace CnsApp31P19Libreria
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /* Aggiunta del DB Context. [ancora incompleto] */
+            services.AddDbContext<AppDBContext>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

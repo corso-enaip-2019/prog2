@@ -9,5 +9,7 @@ namespace CnsApp31P19Libreria.Models
     {
         public int IDBook { get; set; }
         public string Title { get; set; }
+
+        public List<Author> Authors { get; set; }
     }
 }
