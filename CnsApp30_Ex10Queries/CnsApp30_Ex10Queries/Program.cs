@@ -17,6 +17,9 @@ namespace CnsApp30_Ex10Queries
             List<VegetableSFields> listOfVegetableSFields = GetListOfVegetableSFields(mockListOfFarms);
             List<VegetableSExtension> listOfVegetableSExtensions = GetListOfVegetableSExtensions(mockListOfFarms);
             List<Farm> listOfFarmsWithTotalExtensionAbove100 = GetListOfFarmsWithTotalExtensionAboveX(mockListOfFarms, 100);
+            List<Farm> listOfFarms_ExcludedLittleFields = GetListOfFarmsIncludingOnlyFieldsWithExtensionGreaterThanX(mockListOfFarms, 20);
+
+            List<OwnerSFarms> listOfOwnersWithTheirsFarms = GetListOfOwnersWithTheirsFarms(mockListOfFarms);
 
             Console.ReadLine();
         }
@@ -47,6 +50,7 @@ namespace CnsApp30_Ex10Queries
             mockFieldsSam.Add(new Field("Viti", 330));
             mockFieldsSam.Add(new Field("Mais", 215));
             mockFieldsSam.Add(new Field("Carote", 25));
+            mockFieldsSam.Add(new Field("Carote", 5));
             mockFieldsSam.Add(new Field("Carciofi", 555));
             outList.Add(new Farm("Sam", mockFieldsSam));
 
@@ -111,32 +115,44 @@ namespace CnsApp30_Ex10Queries
             //List<Farm> outList = new List<Farm>();
 
             //outList = inListOfFarms
-            //    .Where(x => x.Fields.Sum(y => y.Extension) > minimumExtension)
+            //    .Where(x => (x.Fields.Sum(y => y.Extension)) > minimumExtension)
             //    .OrderBy(z => z.Owner)
             //    .ToList();
 
             //return outList;
 
             return inListOfFarms
-                .Where(x => x.Fields.Sum(y => y.Extension) > minimumExtension)
+                .Where(x => (x.Fields.Sum(y => y.Extension)) > minimumExtension)
                 .OrderBy(z => z.Owner)
                 .ToList();
         }
 
         /* - a list of all `Farms`, but every `Farm` must contain only the `Fields` with an `Extesion` greater than `20` */
+        static List<Farm> GetListOfFarmsIncludingOnlyFieldsWithExtensionGreaterThanX(List<Farm> inListOfFarms, int minimumFieldExtension)
+        {
+            List<Farm> outList = new List<Farm>();
 
+
+            outList = inListOfFarms
+            //.Where(x => x.Fields.Where(y => (y.Extension) > minimumFieldExtension))
+
+
+
+            .OrderBy(z => z.Owner)
+            .ToList();
+
+            return outList;
+
+
+
+
+            //inListOfFarms.RemoveAll(x => x.Fields.Where(y => y.Extension <= minimumFieldExtension))
+        }
 
         /* - a list of `Owners`, where every `Owner` has a `Name` and a list of `Farms` (and every `Farm` has its list of `Fields`) */
-
+        static List<OwnerSFarms> GetListOfOwnersWithTheirsFarms(List<Farm> inListOfFarms) { return new List<OwnerSFarms>(); }
 
         /* - a list of `Owners`, where every `Owner` has a `Name` and a list of `VegetablePercentages`, where a `VegetablePercentage` has the Name of the `Vegetable` and the percentage of `Extension` of that `Vegetable` on the `Farms` of that `Owner` (for example, `Mario` has many `Farms` and `Fields`, for a total of 60 areas of corn and 140 areas of wheat: there will be 2 items in the `Mario`'s list, one with the infos 'Corn' and 30%, and the other with the infos 'Wheat' and 70%) */
-
-
-
-        static List<string> getListOfCultivatedVegetablesAsStrings(List<Farm> inListOfFarms)
-        {
-
-            return new List<string>();
-        }
+        static List<OwnerSVegetables> GetListOfOwnersWithTheirVegetablePercentages(List<Farm> inListOfFarms) { return new List<OwnerSVegetables>(); }
     }
 }
