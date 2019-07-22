@@ -8,5 +8,15 @@ namespace P19_Web_Dynamic_08_PublishingHouse
         public string Title { get; set; }
 
         public List<BookAuthor> BookAuthors { get; set; }
+
+        public Book() { }
+
+        public Book(int id, string title)
+        {
+            Id = id;
+            Title = string.IsNullOrWhiteSpace(title) ? "Titolo non valido!" : title.ToString();
+
+            BookAuthors = new List<BookAuthor>();
+        }
     }
 }

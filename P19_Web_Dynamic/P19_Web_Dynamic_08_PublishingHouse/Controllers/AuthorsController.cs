@@ -22,8 +22,6 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            //ViewBag.message"] = "²+";
-
             var viewModels = await _context.Authors
                 .Include(model => model.BookAuthors)
                 .Select(model => new AuthorRowViewModel
