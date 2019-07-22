@@ -8,7 +8,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.ViewModels
 {
     public class AuthorAddViewModel
     {
-        [Required(AllowEmptyStrings =false)]
+        [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
 
         public AuthorAddViewModel()
