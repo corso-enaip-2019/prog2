@@ -17,7 +17,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.ViewModels
         {
             List<Author> inList = this.AuthorsList;
             if (inList == null)
-                throw new ArgumentException("Ricevuto null come lista");
+                throw new ArgumentException("Ricevuto null come this.AuthorsList.");
 
             else if (inList.Count == 0)
                 return "[Lista d\'autori vuota]";
@@ -31,7 +31,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.ViewModels
 
                 for (int i = 1; i < inList.Count; i++)
                 {
-                    string.Concat(outString, ", ", inList[i].Name.ToString());
+                    outString = string.Concat(outString, ", ", inList[i].Name.ToString());
                 }
 
                 return outString;
