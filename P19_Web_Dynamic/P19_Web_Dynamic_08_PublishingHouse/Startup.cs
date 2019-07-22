@@ -19,7 +19,8 @@ namespace P19_Web_Dynamic_08_PublishingHouse
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options => {
-                options.UseSqlServer("Server=MAX-WIN-VM\\SQLEXPRESS;Database=PublishingHouse;Integrated Security=True;");
+                options.UseSqlServer(@"Server=TRISRV10\SQLEXPRESS;Database=CS2019_BenNic;Integrated Security=True;");
+                //options.UseSqlServer(@"Server=MAX-WIN-VM\SQLEXPRESS;Database=PublishingHouse;Integrated Security=True;");
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

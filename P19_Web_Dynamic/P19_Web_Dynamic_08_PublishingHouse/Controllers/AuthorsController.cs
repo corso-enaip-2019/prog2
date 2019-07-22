@@ -34,6 +34,8 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             return View(viewModels);
         }
 
+        #region Edit
+
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -54,7 +56,8 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             else
             {
                 var books = await _context.Books
-                    .Select(b => new SelectListItem {
+                    .Select(b => new SelectListItem
+                    {
                         Text = b.Title,
                         Value = b.Id.ToString(),
                     })
@@ -87,17 +90,20 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             {
                 return NotFound();
             }
-        }
+        } 
+        #endregion
+
+        #region Delete
 
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var viewModel = await _context.Authors
                 .Select(model => new AuthorDeleteViewModel
-                    {
-                        Id = model.Id,
-                        Name = model.Name,
-                    })
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                })
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (viewModel == null)
@@ -125,6 +131,33 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-        }
+        } 
+        #endregion
+
+        #region Add
+
+        [HttpPost]
+        public async Task<IActionResult> Add()
+        {
+            var model = await _context.Authors
+                .Include(x => x.BookAuthors)
+                .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
+
+            if (model != null)
+            {
+                model.Name = viewModel.Name;
+                model.BookAuthors.Clear();
+                model.BookAuthors.AddRange(viewModel.BooksIds
+                    .Select(bookId => new BookAuthor { BookId = bookId, AuthorId = viewModel.Id }));
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return NotFound();
+            }
+        } 
+        #endregion
     }
 }

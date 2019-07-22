@@ -1,10 +1,11 @@
 use master
 go
 
-create database PublishingHouse
-go
+--create database PublishingHouse
+--go
 
-use PublishingHouse
+--use PublishingHouse
+USE CS2019_BenNic
 go
 
 create table Authors (
