@@ -1,0 +1,33 @@
+﻿@model List<AuthorRowViewModel>
+
+
+<div>
+    <header>
+        <h1>Autori</h1>
+    </header>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Written Books</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var a in Model)
+        {
+            <tr>
+                <td>@a.Name</td>
+                <td>@a.BookCount</td>
+                <td>
+                    <a class="text-primary" asp-controller="Authors" asp-action="Edit" asp-route-id="@a.Id">modifica</a>
+                </td>
+                <td>
+                    <a class="text-danger" asp-controller="Authors" asp-action="Delete" asp-route-id="@a.Id">elimina</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

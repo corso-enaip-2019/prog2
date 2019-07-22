@@ -1,0 +1,12 @@
+﻿@model AuthorDeleteViewModel
+
+<div style="max-width: 500px; margin: 0 auto;">
+    <h1>Cancella Autore</h1>
+    <p>Confermi di voler cancellare dal sistema l'autore '@Model.Name'?</p>
+    <form method="post">
+        <div class="form-group">
+            <a asp-controller="Authors" class="btn btn-default">Annulla</a>
+            <input type="submit" class="btn btn-danger" value="Conferma" />
+        </div>
+    </form>
+</div>

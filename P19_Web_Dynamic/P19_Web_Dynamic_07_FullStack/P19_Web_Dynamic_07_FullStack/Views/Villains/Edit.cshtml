@@ -1,0 +1,79 @@
+﻿@model VillainEditViewModel
+
+@{
+    var superheroes = (IEnumerable<SelectRowViewModel>)ViewData["superheroes"];
+
+    var selectList1 = new SelectList(
+        superheroes,
+        nameof(SelectRowViewModel.Id),
+        nameof(SelectRowViewModel.Name));
+
+    var selectList2 = superheroes
+        .Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name,
+            });
+}
+<h2>Edit villain</h2>
+
+<form method="post">
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label asp-for="VillainName">villain name:</label>
+            <input asp-for="VillainName" class="form-control" />
+            <span asp-validation-for="VillainName"></span>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label asp-for="SecretName">secret name:</label>
+            <input asp-for="SecretName" class="form-control" />
+            <span asp-validation-for="SecretName"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-3">
+            <label asp-for="KilledPeople">killed people:</label>
+            <input asp-for="KilledPeople" class="form-control" type="number" />
+            <span asp-validation-for="KilledPeople"></span>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label asp-for="KidnappedPeople">kidnapped people:</label>
+            <input asp-for="KidnappedPeople" class="form-control" type="number" />
+            <span asp-validation-for="KidnappedPeople"></span>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label asp-for="FirstDate">first date appeared:</label>
+            <input asp-for="FirstDate" type="date" class="form-control" />
+            <span asp-validation-for="FirstDate"></span>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label asp-for="Strength">strength:</label>
+            <input asp-for="Strength" class="form-control" type="number" />
+            <span asp-validation-for="Strength"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label asp-for="Characteristics">characteristics:</label>
+            <textarea asp-for="Characteristics" class="form-control"></textarea>
+            <span asp-validation-for="Characteristics"></span>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label asp-for="NemesisId">nemesis:</label>
+            <select class="form-control"
+                    asp-for="NemesisId"
+                    asp-items="selectList1"></select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <a asp-action="Index" class="btn btn-default">Undo</a>
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+    </div>
+</form>
