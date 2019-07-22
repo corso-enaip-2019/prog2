@@ -22,7 +22,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            ViewBag["message"] = "";
+            //ViewBag.message"] = "²+";
 
             var viewModels = await _context.Authors
                 .Include(model => model.BookAuthors)
@@ -144,7 +144,6 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
         public async Task<IActionResult> Add()
         {
             var viewModel = new AuthorAddViewModel();
-            viewModel.Name = "Nome non immesso!";
 
             if (viewModel == null)
             {
@@ -169,14 +168,12 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
         {
             if (!(viewModel == null || string.IsNullOrWhiteSpace(viewModel.Name)))
             {
-                //ViewBag["message"] = "";
-                await _context.Authors.AddAsync(new Author(viewModel.Id, viewModel.Name));
+                await _context.Authors.AddAsync(new Author(0, viewModel.Name));
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                //ViewBag["message"] = "Nome immesso non valido!";
                 return RedirectToAction(nameof(Add));
                 //return UnprocessableEntity();
             }

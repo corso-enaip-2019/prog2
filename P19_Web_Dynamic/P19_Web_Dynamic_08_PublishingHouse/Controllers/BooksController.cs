@@ -16,21 +16,21 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult> Index()
-        //{
-        //    var viewModels = await _context.Books
-        //        .Include(model => model.BookAuthors)
-        //        .Select(model => new AuthorRowViewModel
-        //        {
-        //            Id = model.Id,
-        //            Name = model.Name,
-        //            BookCount = model.BookAuthors.Count
-        //        })
-        //        .ToListAsync();
+        [HttpGet]
+        public async Task<ActionResult> Index()
+        {
+            var viewModels = await _context.Books
+                .Include(model => model.BookAuthors)
+                .Select(model => new AuthorRowViewModel
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    BookCount = model.BookAuthors.Count
+                })
+                .ToListAsync();
 
-        //    return View(viewModels);
-        //}
+            return View(viewModels);
+        }
 
         //#region Edit
 
