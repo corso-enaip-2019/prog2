@@ -1,0 +1,33 @@
+﻿@model List<AuthorRowViewModel>
+
+@{
+    ViewData["Title"] = "Indæx";
+}
+
+<div>
+    <div><header><h1>Autori</h1></header></div>
+    <div>
+        <main>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Autore</th>
+                        <th>Libri scritti</th>
+                        <th colspan="2">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model)
+                    {
+                        <tr>
+                            <td>@a.Name</td>
+                            <td>@a.BookCount</td>
+                            <td><a class="text-primary" asp-controller="Authors" asp-action="Get" asp-route-id="@a.ID">Modifica</a></td>
+                            <td><a class="text-danger" asp-controller="Authors" asp-action="Delete" asp-route-id="@a.ID">Elimina</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
