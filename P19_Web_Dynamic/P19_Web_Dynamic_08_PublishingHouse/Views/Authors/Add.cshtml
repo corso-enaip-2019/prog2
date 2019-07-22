@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Crea Autore";
+}
+
+@model AuthorAddViewModel
+
+<div style="max-width: 500px; margin: 0 auto;">
+    <h1>Crea Autore</h1>
+    <form method="post">
+        <div class="form-group">
+            <label class="control-label" asp-for="Name">Nome</label>
+            <input class="form-control" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <a asp-controller="Authors" asp-action="Index" class="btn btn-default">Annulla</a>
+            <input type="submit" class="btn btn-primary" value="Salva" />
+        </div>
+    </form>
+</div>
+@*<div>
+    @{
+        if (ViewBag["message"] != null && string.IsNullOrWhiteSpace(ViewBag["message"].ToString()))
+        {
+            <div><h3>@ViewBag["message"].ToString()</h3></div>
+        }
+    }
+</div>*@

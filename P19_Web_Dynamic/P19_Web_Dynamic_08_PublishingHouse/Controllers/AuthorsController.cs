@@ -13,6 +13,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
     {
         private AppDbContext _context;
         
+
         public AuthorsController(AppDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
@@ -21,14 +22,16 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            ViewBag["message"] = "";
+
             var viewModels = await _context.Authors
                 .Include(model => model.BookAuthors)
                 .Select(model => new AuthorRowViewModel
-                    {
-                        Id = model.Id,
-                        Name = model.Name,
-                        BookCount = model.BookAuthors.Count
-                    })
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    BookCount = model.BookAuthors.Count
+                })
                 .ToListAsync();
 
             return View(viewModels);
@@ -90,7 +93,8 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             {
                 return NotFound();
             }
-        } 
+        }
+
         #endregion
 
         #region Delete
@@ -131,33 +135,54 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-        } 
+        }
         #endregion
 
         #region Add
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Add()
         {
-            var model = await _context.Authors
-                .Include(x => x.BookAuthors)
-                .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
+            var viewModel = new AuthorAddViewModel();
+            viewModel.Name = "Nome non immesso!";
 
-            if (model != null)
+            if (viewModel == null)
             {
-                model.Name = viewModel.Name;
-                model.BookAuthors.Clear();
-                model.BookAuthors.AddRange(viewModel.BooksIds
-                    .Select(bookId => new BookAuthor { BookId = bookId, AuthorId = viewModel.Id }));
-                await _context.SaveChangesAsync();
+                return NotFound();
+            }
+            else
+            {
+                var books = await _context.Books
+                    .Select(b => new SelectListItem
+                    {
+                        Text = b.Title,
+                        Value = b.Id.ToString(),
+                    })
+                    .ToListAsync();
 
+                return View(viewModel);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AuthorAddViewModel viewModel)
+        {
+            if (!(viewModel == null || string.IsNullOrWhiteSpace(viewModel.Name)))
+            {
+                //ViewBag["message"] = "";
+                await _context.Authors.AddAsync(new Author(viewModel.Id, viewModel.Name));
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                return NotFound();
+                //ViewBag["message"] = "Nome immesso non valido!";
+                return RedirectToAction(nameof(Add));
+                //return UnprocessableEntity();
             }
-        } 
+        }
+
         #endregion
+
     }
 }
