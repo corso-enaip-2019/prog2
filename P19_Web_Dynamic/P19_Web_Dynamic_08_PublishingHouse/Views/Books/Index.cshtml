@@ -1,8 +1,43 @@
 ﻿@model List<BookRowViewModel>
 
-@{
+    @{
     ViewData["Title"] = "Lista dei libri";
-}
+    }
 
-<h1>Index</h1>
-
+    <div>
+        <header>
+            <h1>Libri</h1>
+        </header>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titolo</th>
+                    <th>Autori</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var l in Model)
+            {
+                <tr>
+                    <td>@l.Title</td>
+                    <td>
+                        @l.GetListOfAuthorsInString().ToString()
+                    </td>
+                    <td>
+                        <a class="text-primary" asp-controller="Books" asp-action="Edit" asp-route-id="@l.Id">modifica</a>
+                    </td>
+                    <td>
+                        <a class="text-danger" asp-controller="Books" asp-action="Delete" asp-route-id="@l.Id">elimina</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2"><a class="text-primary" asp-controller="Books" asp-action="Add">Crea un nuovo libro.</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>

@@ -12,7 +12,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
     public class AuthorsController : Controller
     {
         private AppDbContext _context;
-        
+
 
         public AuthorsController(AppDbContext context)
         {
@@ -139,42 +139,23 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
         #region Add
 
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public IActionResult Add()
         {
-            var viewModel = new AuthorAddViewModel();
-
-            if (viewModel == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                var books = await _context.Books
-                    .Select(b => new SelectListItem
-                    {
-                        Text = b.Title,
-                        Value = b.Id.ToString(),
-                    })
-                    .ToListAsync();
-
-                return View(viewModel);
-            }
+            return View(new AuthorAddViewModel());
         }
 
         [HttpPost]
         public async Task<IActionResult> Add(AuthorAddViewModel viewModel)
         {
-            if (!(viewModel == null || string.IsNullOrWhiteSpace(viewModel.Name)))
-            {
-                await _context.Authors.AddAsync(new Author(0, viewModel.Name));
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                return RedirectToAction(nameof(Add));
-                //return UnprocessableEntity();
-            }
+            /* Inutile grazie al [Required]. */
+            //if (viewModel == null || string.IsNullOrWhiteSpace(viewModel.Name))
+            //{
+            //    ModelState.AddModelError(nameof(viewModel.Name), "Nome vuoto!");
+            //    return View(viewModel);
+            //}
+            await _context.Authors.AddAsync(new Author(0, viewModel.Name));
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         #endregion
