@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace P19_Web_Dynamic_08_PublishingHouse.ViewModels
 {
-    public class BookEditViewModel
+    public class BookDeleteViewModel
     {
         public int Id { get; set; }
-        [Required(AllowEmptyStrings = false)]
         public string Title { get; set; }
-        [Required]
-        public List<int> BookSAuthorSIds { get; set; }
     }
 }

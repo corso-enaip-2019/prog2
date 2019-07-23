@@ -1,0 +1,16 @@
+﻿@model BookDeleteViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div style="max-width: 500px; margin: 0 auto;">
+    <h1>Cancella Libro «@Model.Title»</h1>
+    <p>Confermi di voler cancellare dal sistema il libro «@Model.Title»?</p>
+    <form method="post">
+        <div class="form-group">
+            <a asp-controller="Books" asp-action="Index" class="btn btn-default">Annulla</a>
+            <input type="submit" class="btn btn-danger" value="Conferma" />
+        </div>
+    </form>
+</div>

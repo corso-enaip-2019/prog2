@@ -8,6 +8,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.ViewModels
         public int Id { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
+        [Required]
         public List<int> BooksIds { get; set; }
     }
 }

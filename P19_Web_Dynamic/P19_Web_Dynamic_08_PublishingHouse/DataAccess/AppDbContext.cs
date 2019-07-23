@@ -17,7 +17,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse
 
             modelBuilder
                 .Entity<BookAuthor>()
-                .HasKey(ba => new { ba.AuthorId, ba.BookId});
+                .HasKey(ba => new { ba.AuthorId, ba.BookId });
         }
     }
 }

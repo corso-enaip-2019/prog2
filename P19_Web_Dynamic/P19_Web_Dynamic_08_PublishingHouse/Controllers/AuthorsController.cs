@@ -155,7 +155,7 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
             //}
             await _context.Authors.AddAsync(new Author(0, viewModel.Name));
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return View(viewModel);
         }
 
         #endregion

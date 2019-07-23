@@ -78,11 +78,6 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
                 .Include(x => x.BookAuthors)
                 .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
 
-            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
             if (model != null)
             {
                 model.Title = viewModel.Title;
@@ -101,91 +96,89 @@ namespace P19_Web_Dynamic_08_PublishingHouse.Controllers
 
         #endregion
 
-        //#region Delete
+        #region Delete
 
-        //[HttpGet]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var viewModel = await _context.Authors
-        //        .Select(model => new AuthorDeleteViewModel
-        //        {
-        //            Id = model.Id,
-        //            Name = model.Name,
-        //        })
-        //        .FirstOrDefaultAsync(x => x.Id == id);
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var viewModel = await _context.Books
+                .Select(model => new BookDeleteViewModel
+                {
+                    Id = model.Id,
+                    Title = model.Title,
+                })
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-        //    if (viewModel == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(viewModel);
-        //}
+            return View(viewModel);
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Delete(AuthorDeleteViewModel viewModel)
-        //{
-        //    var model = await _context.Authors
-        //        .Include(m => m.BookAuthors)
-        //        .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
+        [HttpPost]
+        public async Task<IActionResult> Delete(AuthorDeleteViewModel viewModel)
+        {
+            var model = await _context.Books
+                .Include(m => m.BookAuthors)
+                .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
 
-        //    if (model == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (model == null)
+            {
+                return NotFound();
+            }
 
-        //    _context.Authors.Remove(model);
+            _context.Books.Remove(model);
 
-        //    await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-        //    return RedirectToAction(nameof(Index));
-        //}
-        //#endregion
+            return RedirectToAction(nameof(Index));
+        }
 
-        //#region Add
+        #endregion
 
-        //[HttpGet]
-        //public async Task<IActionResult> Add()
-        //{
-        //    var viewModel = new AuthorAddViewModel();
-        //    viewModel.Name = "Nome non immesso!";
+        #region Add
 
-        //    if (viewModel == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    else
-        //    {
-        //        var books = await _context.Books
-        //            .Select(b => new SelectListItem
-        //            {
-        //                Text = b.Title,
-        //                Value = b.Id.ToString(),
-        //            })
-        //            .ToListAsync();
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            var viewModel = new BookAddViewModel();
 
-        //        return View(viewModel);
-        //    }
-        //}
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var books = await _context.Books
+                    .Select(b => new SelectListItem
+                    {
+                        Text = b.Title,
+                        Value = b.Id.ToString(),
+                    })
+                    .ToListAsync();
 
-        //[HttpPost]
-        //public async Task<IActionResult> Add(AuthorAddViewModel viewModel)
-        //{
-        //    if (!(viewModel == null || string.IsNullOrWhiteSpace(viewModel.Name)))
-        //    {
-        //        //ViewBag["message"] = "";
-        //        await _context.Authors.AddAsync(new Author(viewModel.Id, viewModel.Name));
-        //        _context.SaveChanges();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    else
-        //    {
-        //        //ViewBag["message"] = "Nome immesso non valido!";
-        //        return RedirectToAction(nameof(Add));
-        //        //return UnprocessableEntity();
-        //    }
-        //}
+                return View(viewModel);
+            }
+        }
 
-        //#endregion
+        [HttpPost]
+        public async Task<IActionResult> Add(BookAddViewModel viewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                await _context.Books.AddAsync(new Book(0, viewModel.Title));
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(viewModel);
+                //return UnprocessableEntity();
+            }
+        }
+
+        #endregion
     }
 }

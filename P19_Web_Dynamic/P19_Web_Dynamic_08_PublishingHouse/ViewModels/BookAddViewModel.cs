@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace P19_Web_Dynamic_08_PublishingHouse.ViewModels
 {
-    public class BookEditViewModel
+    public class BookAddViewModel
     {
-        public int Id { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string Title { get; set; }
-        [Required]
-        public List<int> BookSAuthorSIds { get; set; }
+
+        public BookAddViewModel()
+        {
+            Title = "";
+        }
+
+        public BookAddViewModel(string title)
+        {
+            Title = string.IsNullOrWhiteSpace(title) ? "" : title.ToString();
+        }
     }
 }

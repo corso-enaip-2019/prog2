@@ -1,28 +1,16 @@
-﻿@model BookEditViewModel
-@{
-    ViewData["Title"] = "Modifica libro";
-}
+﻿@model BookAddViewModel
 
 @{
-    var authors = (List<SelectListItem>)ViewData["authors"];
+    ViewData["Title"] = "Crea Libro";
 }
 
 <div style="max-width: 500px; margin: 0 auto;">
-
-    <h1>Modifica Libro «@Model.Title»</h1>
-
+    <h1>Crea Libro</h1>
     <form method="post">
         <div class="form-group">
             <label class="control-label" asp-for="Title">Titolo</label>
             <input class="form-control" asp-for="Title" />
             <span asp-validation-for="Title"></span>
-        </div>
-        <div class="form-group">
-            <label class="control-label" asp-for="BookSAuthorSIds">Autori:</label>
-            <select class="form-control"
-                    asp-for="BookSAuthorSIds"
-                    asp-items="@authors"></select>
-            <span asp-validation-for="BookSAuthorSIds"></span>
         </div>
         <div class="form-group">
             <a asp-controller="Books" asp-action="Index" class="btn btn-default">Annulla</a>

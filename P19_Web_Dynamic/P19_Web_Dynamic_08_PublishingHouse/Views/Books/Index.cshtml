@@ -1,23 +1,23 @@
 ﻿@model List<BookRowViewModel>
 
-    @{
+@{
     ViewData["Title"] = "Lista dei libri";
-    }
+}
 
-    <div>
-        <header>
-            <h1>Libri</h1>
-        </header>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Titolo</th>
-                    <th>Autori</th>
-                    <th colspan="2"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var l in Model)
+<div>
+    <header>
+        <h1>Libri</h1>
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titolo</th>
+                <th>Autori</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var l in Model)
             {
                 <tr>
                     <td>@l.Title</td>
@@ -32,12 +32,12 @@
                     </td>
                 </tr>
             }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2"><a class="text-primary" asp-controller="Books" asp-action="Add">Crea un nuovo libro.</a></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+                <td colspan="2"><a class="text-primary" asp-controller="Books" asp-action="Add">Crea un nuovo libro.</a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
